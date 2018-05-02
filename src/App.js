@@ -1,20 +1,37 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import CharCard from "./components/CharCard";
+import Wrapper from "./components/Wrapper";
+import Title from "./components/Title";
+import Chars from "./characters.json";
+import "./App.css";
 
 class App extends Component {
-  render() {
+  state = {
+    friends,
+    count: 0
+  }
+
+  handleIncrement = () => {
+    this.setState({ count: this.state.count + 5});
+  }
+
+
+  render () {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
+      <Wrapper>
+        <Title>Click Me Game</Title>
+        <Title>Current Score: {this.state.count}</Title>
+        {this.state.characters.map(character => (
+          <CharCard
+            id={character.id}
+            key={character.id}
+            name={character.name}
+            image={character.image}
+            location={character.location}
+            />
+        ))}
+        </Wrapper>
+    )
   }
 }
 
