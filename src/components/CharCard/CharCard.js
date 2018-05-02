@@ -1,7 +1,7 @@
 import React from "react";
-import "./FriendCard.css";
+import "./CharCard.css";
 
-const FriendCard = props => (
+const CharCard = props => (
   <div className="card">
     <div className="img-container">
       <img alt={props.name} src={props.image} />
@@ -19,10 +19,10 @@ const FriendCard = props => (
         </li>
       </ul>
     </div>
-    <span onClick={() => props.removeFriend(props.id)} className="remove">
+    <span onClick={() => props.removeChar(props.id)} className="remove">
       𝘅
     </span>
   </div>
 );
 
-export default FriendCard;
+export default CharCard;
