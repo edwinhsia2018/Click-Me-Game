@@ -79,7 +79,9 @@ class App extends Component {
   render() {
     return (
       <Wrapper>
+        
         <Nav score={this.state.score} highScore={this.state.highScore} />
+        <div className="row">
         {this.state.Chars.map(character => {
           return <CharCard
             {...character}
@@ -88,6 +90,7 @@ class App extends Component {
             randomOrganize={() => this.randomShuffle(this.state.Char)}
           />
         })}
+      </div>
       </Wrapper>
     )
   }
