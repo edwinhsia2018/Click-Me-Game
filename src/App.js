@@ -14,7 +14,7 @@ class App extends Component {
 
   updateScore = () => {
     this.setState((newState) => ({
-      score: this.newState.score + 1
+      score: newState.score + 1
     }),
       () => this.winGame());
   }
