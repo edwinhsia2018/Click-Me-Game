@@ -7,27 +7,50 @@ import "./App.css";
 
 class App extends Component {
   state = {
-    friends,
-    count: 0
+    Char: Chars,
+    score: 0,
+    highScore: 0
   }
 
-  handleIncrement = () => {
-    this.setState({ count: this.state.count + 5});
+  updateScore = () => {
+    this.setState((newState) => ({ 
+      score: this.newState.score + 1}), 
+      () => this.winGame());
   }
 
+  winGame = () => {
+    if (this.state.score == this.state.Chars.length){
+      alert("Congratulations!  You Won!!");
+      this.setState({});
+      this.resetGame();
+    }
+    else {
+      this.randomShuffle(this.state.Chars);
+    }
+  }
+
+  resetGame = () => {
+    this.setState({ score: 0});
+    this.state.Chars.forEach(element => {
+      
+    });((image))
+  }
+
+  randomShuffle = () => {
+
+  }
 
   render () {
     return (
       <Wrapper>
         <Title>Click Me Game</Title>
-        <Title>Current Score: {this.state.count}</Title>
-        {this.state.characters.map(character => (
+        <Title>Current Score: {this.state.score}</Title>
+        {this.state.Chars.map(Chars => (
           <CharCard
-            id={character.id}
-            key={character.id}
-            name={character.name}
-            image={character.image}
-            location={character.location}
+            id={Chars.id}
+            key={Chars.id}
+            name={Chars.name}
+            image={Chars.image}
             />
         ))}
         </Wrapper>
